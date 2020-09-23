@@ -1,0 +1,39 @@
+*
+{
+    font-family : Verdana, Geneva, sans-serif;
+}
+body.size, h1
+{
+    text-align : center;
+}
+main.size
+{
+    font-size : large;
+}
+footer.size
+{
+    font-size : medium;
+}
+.bottom
+{
+    position : fixed;
+    bottom : 0;
+}
+img
+{
+    width : 300px;
+    height : 300px;
+    margin: 50px 50px 50px 50px;
+}
+#inline
+{
+    display : inline-block;
+}
+#end
+{
+    color : blue;
+}
+#float
+{
+    float : right;
+}

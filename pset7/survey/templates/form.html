@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">Form</h1>
+
+    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+    <form action="/form" method="post">
+
+        <div class="form-group col-md-3">
+            <input autocomplete="off" autofocus="" class="form-control" name="name" placeholder="Name" type="text">
+        </div>
+
+        <div class="form-group col-md-3">
+            <select class="form-control" name="position">
+                <option disabled="" selected="" value="">Position</option>
+                <option value="CF">Center Forward</option>
+                <option value="RW">Right Winger</option>
+                <option value="LW">Left Winger</option>
+                <option value="CM">Center Midfield</option>
+                <option value="RM">Right Midfield</option>
+                <option value="LM">Left Midfield</option>
+                <option value="CB">Center Back</option>
+                <option value="RB">Right Back</option>
+                <option value="LB">Left Back</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+
+                <div class="form-check">
+                    <input class="form-check-input" id="fc_barcelona" name="team" type="radio" value="FC Barcelona">
+                    <label class="form-check-label" for="fc_barcelona">
+                        FC Barcelona
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" id="liverpool_fc" name="team" type="radio" value="Liverpool FC">
+                    <label class="form-check-label" for="liverpool_fc">
+                        Liverpool FC
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" id="manchester_united_fc" name="team" type="radio" value="Manchester United FC">
+                    <label class="form-check-label" for="manchester_united_fc">
+                        Manchester United FC
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" id="real_madrid_cf" name="team" type="radio" value="Real Madrid CF">
+                    <label class="form-check-label" for="real_madrid_cf">
+                        Real Madrid CF
+                    </label>
+                </div>
+
+        </div>
+
+        <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
+        <button class="btn btn-primary" type="submit">Submit</button>
+
+    </form>
+
+    <script>
+
+        document.querySelector('form').onsubmit = function() {
+            if (!document.querySelector('input').value) {
+                alert('You must provide your name!');
+                return false;
+            }
+            else if (!document.querySelector('select').value) {
+                alert('You must provide your position!');
+                return false;
+            }
+            else {
+                check = 0;
+                pos = document.getElementsByName('team');
+                for(i = 0; i < pos.length; i++) {
+                    if (pos[i].checked){
+                        check++;
+                    }
+                }
+                if (!check) {
+                    alert('You must provide your team!');
+                    return false;
+                }
+            }
+            return true;
+        };
+
+    </script>
+
+{% endblock %}

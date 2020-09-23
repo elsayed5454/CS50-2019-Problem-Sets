@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">Sheet</h1>
+
+    <!-- http://getbootstrap.com/docs/4.1/components/tables/ -->
+    <div class="dataTables_wrapper dt-bootstrap4 no-footer">
+
+        <div class="row">
+            <div class="col-sm-12 col-md-6"></div>
+            <div class="col-sm-12 col-md-6"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table dataTable no-footer" role="grid">
+                    <thead>
+                        <tr>
+                            <th style="width: 650.4px;">Name</th>
+                            <th style="width: 325.6px;">Position</th>
+                            <th style="width: 339.2px;">Team</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for player in players %}
+                        <tr>
+                            <td>{{ player[0] }}</td>
+                            <td>{{ player[1] }}</td>
+                            <td>{{ player[2] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
